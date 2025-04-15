@@ -138,6 +138,10 @@
                             <h4><code>drawCircle(int x, int y, int radius, int r, int g, int b, int a)</code></h4>
                             <p>Dessine un cercle aux coordonnées (x,y) avec le rayon et la couleur RGBA spécifiés.</p>
                         </div>
+                        <div class="method">
+                            <h4><code>virtual std::string getTextInput(const std::string& prompt, const std::string& initialText = "") = 0;</code></h4>
+                            <p>Permet de rentrer des caractères dans une chaine de charactères.</p>
+                        </div>
                     </div>
                 </section>
 
@@ -195,6 +199,8 @@ namespace arcade {
         void drawRect(int x, int y, int width, int height, int r, int g, int b, int a) override;
         void drawText(const std::string& text, int x, int y, int r, int g, int b, int a) override;
         void drawCircle(int x, int y, int radius, int r, int g, int b, int a) override;
+        virtual void drawCircle(int x, int y, int radius, int r, int g, int b, int a) = 0;
+        virtual std::string getTextInput(const std::string& prompt, const std::string& initialText = "") = 0;
         
     private:
         sf::RenderWindow* _window;
@@ -316,7 +322,7 @@ extern "C" {
                 </section>
 
                 <section class="implementation-notes" data-aos="fade-up">
-                    <h2 style="color: black;"class="in">Conseils d'implémentation</h2>
+                    <h2 style="color: black ;" class="in">Conseils d'implémentation</h2>
                     
                     <div class="advice-card">
                         <i class="fas fa-lightbulb"></i>
